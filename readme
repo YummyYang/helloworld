@@ -1,2 +1,4 @@
 2011-04-26 : init helloworld
 2013-04-24 : add Java Inversion of Control demo.
+		project test :	this is for illustration purposes and should not be treated in any way as a best practice.
+		project HelloSpring : a IOC demo by STS.
