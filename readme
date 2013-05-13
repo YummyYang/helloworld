@@ -1,4 +1,7 @@
 2011-04-26 : init helloworld
-2013-04-24 : add Java Inversion of Control demo.
+2013-04-24 : add Java Inversion of Control (a.k.a IOC)demo.
 		project test :	this is for illustration purposes and should not be treated in any way as a best practice.
 		project HelloSpring : a IOC demo by STS.
+2013-05-14 : review the codes, modify the code structure, add directory : exuberant_ctags_test , and add the compile/run instructions.
+		compile method :  javac -d . Test.java
+		run : java yummy.test.Test
