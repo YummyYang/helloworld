@@ -19,7 +19,7 @@ context-param
 	param-name : contextConfigLocation
 	param-value: classpath:springcfg/applicationContext.xml
 
-listener : org.springframework.web.context.ContextLoaderListerner
+listener : org.springframework.web.context.ContextLoaderListener
 	   org.springframework.web.util.IntrospectorCleanupListener
 
 filter : encodingFilter
