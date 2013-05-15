@@ -1,6 +1,7 @@
 record for a Spring project.
 
 1.web.xml
+location : src/main/webapp/WEB-INF/web.xml
 there are many things that web.xml done:
 1.1 display-name
 1.2 session-config
@@ -13,6 +14,7 @@ there are many things that web.xml done:
 				attributeRemoved
 				attributeReplaced
 ####		question #1 : why we implement it ?		####
+####		answer 	:	Interceptor : org.xxx.commons.web.LoginInterceptor
 
 --load spring : 
 context-param
@@ -37,6 +39,7 @@ context-param
 		     /tiles/tiles-history.xml
 
 #### 		question #2 : can thoes listener/context-param change locations ? ####
+###		answer 	: no
 
 listener : org.apache.struts2.tiles.StrutsTilesListener
 
@@ -47,3 +50,136 @@ declared in src/main/webapp/WEB-INF/web.xml
 
 ----------------------------------------------------------------------------------------------------
 2.springcfg/applicationContext.xml
+2.1 load config file:
+	bean class : org.springframework.beans.factory.config.PropertyPlaceholderConfigurer
+	property name : locations
+	value : classpath:springcfg/dataSource.properties
+######## question #3 : what's 'xe' ?
+######## springcfg/dataSource.properties note: 
+######## when use sqlplus to login oracle , we use 'sqlplus username/password@xxx.xxx.xxx.xx:port'
+######## but in dataSource.properties , we use jdbcURL 'jdbc:oracle:thin:@xxx.xxx.xxx.xxx:port:xe'
+######## xe is 'table_space' . 
+######## but we can't find xe (table_space) from sql "select distinct TABLESPACE_NAME from tabs;"
+######## and the count are 2 : "select count(distinct TABLESPACE_NAME) from tabs;"
+
+
+2.2 config data source
+driverClass : oracle.jdbc.driver.OracleDriver
+jdbcUrl : value from springcfg/dataSource.properties
+user : value from springcfg/dataSource.properties
+password : value from springcfg/datasource.properties
+maxPoolSize
+minPoolSize
+initialPoolSize
+maxIdleTime
+idleConnectionTestPeriod
+maxStatement
+checkoutTimeout
+
+2.3 transaction
+bean 	id : tx Manager
+	class : org.springframework.jdbc.datasource.DataSourceTransactionManager
+	property name : dataSource
+		 ref  : datSource
+tx:advice
+	id	:	txAdvice
+	transaction-manager = txManager
+	tx:attribute
+		tx:method : 	find*
+				has*
+				add*
+				alter*
+				del*
+######## question #4 : what's advice mean ?
+
+aop:config
+	aop:pointcut 	id=serviceOperation
+			expression=execution(public * org.bgi..service.*.*(...))
+######## question #5 :  what's pointcut mean?
+
+		 	what's expression=excution(public * org.bgi..service.*.*(..))	mean ?
+	apo:advisor 	advice-ref=txAdvice
+			pointcut-ref=seviceOperation
+######## question #6 :  what's txAdvice ?
+
+2.4 inport other Spring files: 	(all in the same folder)
+	import resource spring-commons.xml
+			spring-action.xml
+			spring-service.xml
+			spring-dao.xml
+			spring-mail-client.xml
+
+----------------------------------------------------------------------------------------------------
+3. src/main/resources/springcfg/spring-commons.xml
+
+3.1 mailValidate
+
+3.2 ldapSearch
+
+3.3 loginInterceptor
+
+3.4 powerInterceptor
+
+3.5 fileUploadInterceptor
+
+3.6 taskExecutor
+
+3.7 mailSender
+
+3.8 mailUtil
+
+----------------------------------------------------------------------------------------------------
+4.src/main/resources/springcfg/spring-action.xml
+
+4.1 mainAction
+
+4.2 ticketAction
+
+4.3 systemAction
+
+4.4 historyAction
+
+----------------------------------------------------------------------------------------------------
+5.src/main/resources/springcfg/spring-service.xml
+
+5.1 laneService
+
+5.2 projectService
+
+5.3 sampleService
+
+5.4 subProjectService
+
+5.5 ticketService
+
+5.6 userService
+
+5.7 propertyService
+
+----------------------------------------------------------------------------------------------------
+6.src/main/resources/springcfg/spring-dao.xml
+
+6.1 laneDao
+
+6.2 projectDao
+
+6.3 sampleDao
+
+6.4 subProjectDao
+
+6.5 ticketDao
+
+6.6 userDao
+
+6.7 propertyDao
+
+----------------------------------------------------------------------------------------------------
+7.src/main/resources/springcfg/spring-mail-client.xml
+
+7.1 import classpath:META-INF/cxf/cxf.xml
+    import classpath:META-INF/cxf/cxf-extension-soap.xml
+    import classpath:META-INF/cxf/cxf-servlet.xml
+
+    jaxws:client id=mailAction
+		 serviceClass=org.bgi.mail.action.MailAction
+		 address="http://xxx.xxx.xx.xxx/Dlywebservice1.0.0.2/ticket?wsdl"
