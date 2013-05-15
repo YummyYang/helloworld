@@ -12,15 +12,15 @@ there are many things that web.xml done:
 		overrided: 	attributeAdded
 				attributeRemoved
 				attributeReplaced
-####		question #1 : why we implement it ?
+####		question #1 : why we implement it ?		####
 
 --load spring : 
 context-param
 	param-name : contextConfigLocation
-	param-value: classpath:springcfg/applicationContext.xml
+	param-value: classpath:springcfg/applicationContext.xml			--> 2.springcfg/applicationContext.xml
 
 --listener : org.springframework.web.context.ContextLoaderListener
-	   org.springframework.web.util.IntrospectorCleanupListener
+	     org.springframework.web.util.IntrospectorCleanupListener
 
 --filter : encodingFilter
 	   struts2
@@ -36,7 +36,7 @@ context-param
 		     /tiles/tiles-system.xml,
 		     /tiles/tiles-history.xml
 
-#### 		question #2 : can thoes listener/context-param change locations ?
+#### 		question #2 : can thoes listener/context-param change locations ? ####
 
 listener : org.apache.struts2.tiles.StrutsTilesListener
 
@@ -44,3 +44,6 @@ declared in src/main/webapp/WEB-INF/web.xml
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+
+----------------------------------------------------------------------------------------------------
+2.springcfg/applicationContext.xml
