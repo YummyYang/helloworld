@@ -289,3 +289,30 @@ Data Operation
 		<bean id="mailValidate" class="org.xxx.commons.MailValidate">
 			<property name="ldapUrl" Value="ldap://xxx.xxx.xxx.xxx:xxx" />
 		</bean>
+
+2. Table.
+TNAME											   TABTYPE		  CLUSTERID
+------------------------------------------------------------------------------------------ --------------------- ----------
+LOG_DATAIMPORT										   TABLE
+RECORD_PROJECT										   TABLE
+RECORD_SUBPROJECT									   TABLE
+R_ROLE_RESOURCE 									   TABLE
+R_TICKET_SAMPLE 									   TABLE
+R_TICKET_SUBPROJECT									   TABLE
+T_COMMENT										   TABLE
+T_LANE											   TABLE
+T_PRODUCTLINE										   TABLE
+T_PROJECT										   TABLE
+T_PROPERTY										   TABLE
+
+TNAME											   TABTYPE		  CLUSTERID
+------------------------------------------------------------------------------------------ --------------------- ----------
+T_RESOURCE										   TABLE
+T_ROLE											   TABLE
+T_SAMPLE										   TABLE
+T_SUBPROJECT										   TABLE
+T_TICKET										   TABLE
+T_TICKETDATA										   TABLE
+T_USER											   TABLE
+T_WORKFLOWTYPE										   TABLE
+
