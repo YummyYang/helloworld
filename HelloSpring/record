@@ -285,3 +285,7 @@ Data Operation
 		<bean id="userDao" class="org.xxx.egd.dao.impl.UserDaoImpl">
 			<property name="dateSource" ref="dataSource" />
 		</bean>
+	spring-commons.xml
+		<bean id="mailValidate" class="org.xxx.commons.MailValidate">
+			<property name="ldapUrl" Value="ldap://xxx.xxx.xxx.xxx:xxx" />
+		</bean>
