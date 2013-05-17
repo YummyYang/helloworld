@@ -90,10 +90,10 @@ tx:advice
 
 aop:config
 	aop:pointcut 	id=serviceOperation
-			expression=execution(public * org.bgi..service.*.*(...))
+			expression=execution(public * org.xxx..service.*.*(...))
 ######## question #5 :  what's pointcut mean?
 
-		 	what's expression=excution(public * org.bgi..service.*.*(..))	mean ?
+		 	what's expression=excution(public * org.xxx..service.*.*(..))	mean ?
 	apo:advisor 	advice-ref=txAdvice
 			pointcut-ref=seviceOperation
 ######## question #6 :  what's txAdvice ?
@@ -177,7 +177,7 @@ aop:config
     import classpath:META-INF/cxf/cxf-servlet.xml
 
     jaxws:client id=mailAction
-		 serviceClass=org.bgi.mail.action.MailAction
+		 serviceClass=org.xxx.mail.action.MailAction
 		 address="http://xxx.xxx.xx.xxx/Dlywebservice1.0.0.2/ticket?wsdl"
 
 ----------------------------------------------------------------------------------------------------
@@ -276,4 +276,12 @@ Data Operation
 ------------------------------------------
 1. the configuration.
 	spring-service.xml
+		<bean id="userService" class="org.xxx.egd.service.impl.UserServiceImpl">
+			<property name="userDao" ref="userDao" />
+			<property name="mailValidate" ref="mailValidate" />
+		</bean>
+
 	spring-dao.xml
+		<bean id="userDao" class="org.xxx.egd.dao.impl.UserDaoImpl">
+			<property name="dateSource" ref="dataSource" />
+		</bean>
