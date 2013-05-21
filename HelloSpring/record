@@ -315,4 +315,43 @@ T_TICKET										   TABLE
 T_TICKETDATA										   TABLE
 T_USER											   TABLE
 T_WORKFLOWTYPE										   TABLE
+(well, the max columns are 133. )
 
+3. Login
+
+3.1 T_USER 
+
+	select * from T_USER where 1=1 and user_mail like ?
+
+3.2 ROLE_RESOURCE , R_ROLE_RESOURCE
+
+	select SRC.* , ROLE_RESOURCE.ROLE_ID 
+	from R_ROLE_RESOURCE ROLE_RESOURCE 
+	left join T_RESOURCE SRC 
+	on SRC.RESOURCE_ID = ROLE_RESOURCE.RESOURCE_ID
+	where 1=1
+	and ROLE_ID = ?
+	order by SRC.RESOURCE_INDEX
+
+
+----------------------------------------------------------------------------------------------------
+4. dev note.
+4.1 svn:ignore 
+	.settings/
+	.classpath
+	.project
+
+4.2 add datasource.
+	dataSource.properties
+		change the dataSource's username
+		add another dataSource
+	applicationContext.xml
+		add 	another dataSource
+			txOlManager	
+			txOlAdvice
+			olServiceOperation
+	import resource:
+		spring-xxx-dao.xml
+		spring-xxx-service.xml
+
+		
