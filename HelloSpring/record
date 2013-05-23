@@ -356,3 +356,12 @@ T_WORKFLOWTYPE										   TABLE
 		spring-xxx-service.xml
 
 		
+
+----------------------------------------------------------------------------------------------------
+5.css note
+5.1 Therr types of css:
+	A{}	<A>
+	#A{}	<div id=a> 
+	.A{}	<div class=A>
+
+
