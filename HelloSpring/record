@@ -317,7 +317,8 @@ T_USER											   TABLE
 T_WORKFLOWTYPE										   TABLE
 (well, the max columns are 133. )
 
-3. Login
+----------------------------------------------------------------------------------------------------
+3. The Login process.
 
 3.1 T_USER 
 
