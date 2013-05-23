@@ -320,11 +320,11 @@ T_WORKFLOWTYPE										   TABLE
 ----------------------------------------------------------------------------------------------------
 3. The Login process.
 
-3.1 T_USER 
+3.1 validate user by email from T_USER 
 
 	select * from T_USER where 1=1 and user_mail like ?
 
-3.2 ROLE_RESOURCE , R_ROLE_RESOURCE
+3.2  get role's resource from ROLE_RESOURCE & R_ROLE_RESOURCE
 
 	select SRC.* , ROLE_RESOURCE.ROLE_ID 
 	from R_ROLE_RESOURCE ROLE_RESOURCE 
