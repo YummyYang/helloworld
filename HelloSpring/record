@@ -355,6 +355,12 @@ T_WORKFLOWTYPE										   TABLE
 		spring-xxx-dao.xml
 		spring-xxx-service.xml
 
+4.3 add a field and display it.
+	1.domain
+	2.dao
+	3.service
+	4.adction
+	5.jsp
 		
 
 ----------------------------------------------------------------------------------------------------
@@ -363,5 +369,6 @@ T_WORKFLOWTYPE										   TABLE
 	A{}	<A>
 	#A{}	<div id=a> 
 	.A{}	<div class=A>
+
 
 
