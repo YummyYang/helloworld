@@ -317,6 +317,11 @@ T_USER											   TABLE
 T_WORKFLOWTYPE										   TABLE
 (well, the max columns are 133. )
 
+(13 tables before . after that, there have some new tables added:)
+R_ONLINEUSER_PROJECT
+T_CONTRACT
+T_SUBPROJECT_ATTACHMENT
+
 ----------------------------------------------------------------------------------------------------
 3. The Login process.
 
