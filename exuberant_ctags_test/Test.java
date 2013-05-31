@@ -9,7 +9,9 @@ public class Test{
 		}else if(args.length >=2){
 			System.err.println("Error: args.length >=2");
 		}else{
-			System.out.println("Well , javacomplete/compile/run looks ok~");
+			System.out.println("Well, javacomplete/compile/run looks ok~");
+			System.out.println("args.length = " + args.length);
+			ok();
 		}
 	}
 	void test(){
@@ -19,8 +21,14 @@ public class Test{
 		System.currentTimeMillis();
 		System.getenv();
 	}
-	void ok(){
-
+	static void ok(){
+		System.out.println("ok");
+		String test = "a|bb|ccc";
+		String[] array = test.split("\\|");
+		for(int i=0; i<array.length; i++){
+			System.out.println(array[i]);
+		}
+		System.out.println("okay");
 	}
 	void faint(){
 
