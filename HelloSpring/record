@@ -375,5 +375,21 @@ T_SUBPROJECT_ATTACHMENT
 	#A{}	<div id=a> 
 	.A{}	<div class=A>
 
-
+----------------------------------------------------------------------------------------------------
+6.SQL:
+SQL> create or replace FUNCTION "F_GENERATE_ATTACHMENT_NUM"
+  2  return varchar2
+  3  is
+  4  attachment_num varchar2(128);--返回结果
+  5  now_date varchar2(128);--当前日期
+  6  attachment_count number(10,0);--attachment计数
+  7  begin
+  8  select to_char(sysdate,'yyyy-mm-dd') into now_date from dual;
+  9  select (count(*)+1) into attachment_count from t_subproject_attachment attachment
+ 10  where attachment.createtime >= to_date((now_date||' '||'00:00:00') , 'yyyy-mm-dd hh24:mi:ss')
+ 11  and attachment.createtime <= to_date((now_date||' '||'23:59:59') , 'yyyy-mm-dd hh24:mi:ss');
+ 12  attachment_num := to_char(to_date(now_date,'yyyy-mm-dd'),'yyyymmdd')||attachment_count;
+ 13  return attachment_num;
+ 14  end;
+ 15  /
 

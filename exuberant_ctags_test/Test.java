@@ -11,7 +11,8 @@ public class Test{
 		}else{
 			System.out.println("Well, javacomplete/compile/run looks ok~");
 			System.out.println("args.length = " + args.length);
-			ok();
+			//ok();
+			faint();
 		}
 	}
 	void test(){
@@ -31,6 +32,7 @@ public class Test{
 		System.out.println("okay");
 	}
 	void faint(){
+		System.out.println("faint");
 
 	}
 	void again(){
