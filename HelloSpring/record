@@ -366,7 +366,6 @@ T_SUBPROJECT_ATTACHMENT
 	3.service
 	4.adction
 	5.jsp
-		
 
 ----------------------------------------------------------------------------------------------------
 5.css note
@@ -374,6 +373,8 @@ T_SUBPROJECT_ATTACHMENT
 	A{}	<A>
 	#A{}	<div id=a> 
 	.A{}	<div class=A>
+
+5.2 It is better use unique HTML element ID. (looks like meaningless, but the tragedy has really happend.)
 
 ----------------------------------------------------------------------------------------------------
 6.SQL:
