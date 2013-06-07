@@ -376,6 +376,8 @@ T_SUBPROJECT_ATTACHMENT
 
 5.2 It is better use unique HTML element ID. (looks like meaningless, but the tragedy has really happend.)
 
+5.3 the font-size of em demo:
+	style='font-size:0.7em;'
 ----------------------------------------------------------------------------------------------------
 6.SQL:
 SQL> create or replace FUNCTION "F_GENERATE_ATTACHMENT_NUM"
