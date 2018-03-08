@@ -1,7 +1,8 @@
 import numpy as np
 import h5py
     
-    
+#plt.imshow(train_set_x_orig[index])
+#print ("y = " + str(train_set_y[:, index]) + ", it's a '" + classes[np.squeeze(train_set_y[:, index])].decode("utf-8") +  "' picture.")    
 def load_dataset():
     train_dataset = h5py.File('./datasets/train_catvnoncat.h5', "r")
     train_set_x_orig = np.array(train_dataset["train_set_x"][:]) # your train set features
