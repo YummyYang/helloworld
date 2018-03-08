@@ -9,3 +9,4 @@
 				compile : javac -d . Test.java
 				run 	: java yummy.test.Test
 2018-01-24 : start ML.
+2018-01-25 : change /usr/local/lib/python3.5/site-packages/matplotlib/mpl-data/matplotlibrc 's line 40, "backend : agg" -> "backend : TkAgg" , so we can see image immediately.
